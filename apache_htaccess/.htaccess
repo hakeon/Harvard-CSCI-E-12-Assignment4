@@ -1,0 +1,45 @@
+# CSCI E-12 Spring 2014, Assignment 4, Part 1
+
+# first requirement....................................................
+# redierect 404 to custom notification document
+ErrorDocument 404 /404.html
+#......................................................................
+
+
+# second requirement...................................................
+# enable expirations
+ExpiresActive On
+
+# expire GIF images after 1 day in the client's cache
+ExpiresByType image/gif A86400
+
+# expire JPEG images after 1 day in the client's cache
+ExpiresByType image/jpeg A86400
+
+# expire PNG images after 1 day in the client's cache
+ExpiresByType image/png A86400
+
+# expire CSS text to expire afer 1 day in the client's cache
+ExpiresByType text/css A86400
+
+# expire JavaScript after 1 day in the client's cache
+ExpiresByType text/javascript A86400
+ExpiresByType application/javascript A86400
+#.....................................................................
+
+
+# third requirement...................................................
+# compress XHTML, HTML, CSS, JavaScript
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE text/plain
+#.....................................................................
+
+# forth requirement...................................................
+#rewrite url
+RewriteEngine On
+RewriteBase /
+RewriteRule ^myfavoritebook$ http://www.amazon.com/That-Book-about-Harvard-Embarrassment-ebook/dp/B008673Z9W/ref=sr_1_1?s=digital-text&ie=UTF8&qid=1398825211&sr=1-1&keywords=that+book+about+harvard [NC,L]
+#.....................................................................
